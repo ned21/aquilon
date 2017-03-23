@@ -1,0 +1,58 @@
+# The config file etc/aqd.conf.defaults always gets read first, and the
+# values below override those.  To nullify a value from the defaults,
+# it must be explicitly set to an empty value here.
+#
+# This should work "out of the box" for development purposes.
+# To connect to an oracle database, copy this file and adjust the
+# [database_oracle] parameters as appropriate.  Then, change
+# database_section to point to database_oracle.
+
+[DEFAULT]
+basedir = /var
+quattordir = %(basedir)s/quattor
+
+[database]
+# docker defaults to shortnames
+servername = %(hostname)s.ms.com
+database_section = database_sqlite
+#log_query_times = yes
+#log_query_plans = yes
+#log_unique_plans_only = yes
+
+[broker]
+run_git_daemon = True
+dsdb_use_testdb = True
+#server_notifications = cdb2sql bootserver
+client_notifications = no
+
+[panc]
+version = beta
+
+[tool_locations]
+dsdb = /bin/echo
+mean = %(srcdir)s/tests/fakebin/fake_mean
+ssh = /ms/dist/sec/PROJ/openssh/prod/bin/ssh
+switch_discover = /ms/dist/aquilon/PROJ/switch-discover/prod/bin/switch-discover
+get_camtable = /ms/dist/aquilon/PROJ/switch-discover/prod/bin/get-camtable
+git = /usr/bin/git
+git_daemon = /ms/dist/fsf/PROJ/git/2.9.0/libexec/git-core/git-daemon
+aii_installfe = /ms/dist/elfms/PROJ/aii/prod/sbin/aii-installfe
+vlan2net = /ms/dist/aquilon/PROJ/vlan2net/prod/bin/vlan2net
+qip_dump_subnetdata = /ms/dist/3rd/qip/usr/sbin/qip-dump-subnetdata
+#knc = /ms/dist/kerberos/PROJ/knc/prod/bin/knc
+krb5_keytab = /ms/dist/kerberos/PROJ/krb5_keytab/prod/sbin/krb5_keytab
+klist = /ms/dist/aurora/bin/klist
+checkedm = /bin/true
+
+# This can be used for any components that use python logging
+# Valid values are INFO, DEBUG, and WARNING
+# For sqlalchemy, only INFO and DEBUG produce log messages.
+[logging]
+#sqlalchemy.engine = INFO
+#sqlalchemy.pool = INFO
+#sqlalchemy.orm = INFO
+
+[protocols]
+directory = /protocols
+
+
