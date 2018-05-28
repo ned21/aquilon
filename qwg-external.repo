@@ -1,0 +1,10 @@
+[QWG-externals-noarch]
+name=Quattor Externals 7 - noarch
+baseurl=http://yum.quattor.org/externals/noarch/el7/
+enabled=1
+
+
+[QWG-externals-noarch]
+name=Quattor Externals 7 - el7
+baseurl=http://yum.quattor.org/externals/x86_64/el7/
+enabled=1
